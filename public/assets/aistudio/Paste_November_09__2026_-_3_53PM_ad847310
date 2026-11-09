@@ -1,0 +1,426 @@
+NOVELIA
+Every story deserves to be heard, read, and felt.
+
+PRODUCT REQUIREMENTS DOCUMENT
+Version 1.0  |  Proposed MVP and product scope
+
+Document field	Details
+Product	NOVELIA — AI-powered global reading marketplace
+Document type	Product Requirements Document (PRD)
+Version	1.0
+Status	Proposed — for stakeholder review
+Primary user groups	Readers, book publishers, platform administrators
+Core AI assistant	ROX
+Primary platform	Responsive web application (initial release)
+
+Prepared as a product concept based on the stated client requirements.
+ 
+Document Control
+Item	Description
+Purpose	Define the product vision, users, scope, functional and non-functional requirements, business rules, user journeys, and success measures for NOVELIA.
+Audience	Client stakeholders, product management, business analysis, UX/UI design, engineering, QA, and operations teams.
+Scope note	This PRD contains proposed assumptions and recommendations where the client brief did not specify a decision. These must be validated before production development.
+MVP approach	Build a web-first prototype with simulated transactions and sample data before implementing production payment, licensing, and advanced AI capabilities.
+
+1. Product Overview
+1.1 Product Vision
+To make literature accessible across language barriers and create an immersive, personalized reading experience while empowering publishers to distribute, monetize, and understand their content globally.
+1.2 Product Summary
+NOVELIA is a multilingual digital reading marketplace connecting readers and publishers worldwide. Readers can discover, purchase, and read digital books, manage their libraries, participate in chapter-based discussions, and use ROX, an AI-powered assistant. Publishers can upload and manage books, monitor performance and earnings, and submit promotional campaigns through the Reach Readers feature.
+1.3 Product Value Proposition
+•	Discover: Find books by title, author, genre, language, and other preferences.
+•	Experience: Read with optional instrumental background music and chapter-based community discussions.
+•	Manage: Use ROX AI to assist with reading, searching, purchasing reminders, publishing workflows, and analytics.
+•	Connect: Give publishers tools to distribute books and understand aggregate reader engagement.
+2. Problem Statement and Objectives
+2.1 Problem Statement
+Readers may face language barriers when accessing international literature, have fragmented tools for managing purchases and reading progress, and lack immersive or chapter-specific community experiences. Publishers may lack an integrated platform for distributing digital books, monitoring sales and engagement, and requesting promotional support.
+2.2 Product Objectives
+•	Provide a centralized marketplace for digital books and approved language editions.
+•	Make it easy for readers to discover, purchase, and manage books.
+•	Improve reading engagement through StorySound and Chapter Circle.
+•	Provide publishers with book management, sales, earnings, and engagement insights.
+•	Use ROX to simplify high-value reader and publisher tasks.
+•	Establish a scalable foundation for global distribution and future monetization.
+3. Target Users and Personas
+User type	Description	Primary needs
+Global reader	A person who reads digital books and may prefer one or more languages.	Discover books, access preferred language editions, purchase, read, and manage a library.
+Book enthusiast	A frequent reader who tracks progress and follows authors or genres.	Reading history, favorites, recommendations, upcoming releases, and community.
+Independent author	An individual who publishes and sells their own work.	Upload and manage books, track performance, receive earnings, and promote books.
+Publishing company	An organization managing multiple authors or titles.	Manage a catalog, schedule releases, analyze performance, and manage payments.
+Platform administrator	An authorized NOVELIA operator.	Verify publishers, moderate content, approve books and campaigns, and oversee platform operations.
+
+4. User Roles and Access
+Role	Main capabilities
+Reader	Browse books, purchase, read, manage library and preferences, join chapter discussions, use StorySound, and interact with ROX.
+Publisher	Manage publisher profile and books, schedule releases, view analytics and earnings, submit Reach Readers campaigns, and use ROX.
+Administrator	Manage users and publishers, approve books, review campaigns, oversee payments, moderate discussions, and monitor platform activity.
+
+Access must be role-based. Readers must not access publisher or admin functions. Publishers must only manage their own organization and books. Administrators must have controlled access to operational and moderation functions.
+5. Scope and Release Strategy
+5.1 MVP Scope
+•	Reader, publisher, and administrator demo access and role-based navigation.
+•	Reader home, book discovery, search, filters, book details, library, favorites, and reading progress.
+•	Simulated book purchase and transaction history.
+•	Basic reading interface with bookmarks and automatic progress saving.
+•	StorySound with predefined, licensed or original instrumental tracks.
+•	Chapter Circle discussion popup and basic chapter-specific comments.
+•	Publisher dashboard, book upload form, book management, and basic analytics.
+•	Publisher earnings and payment history using sample or simulated data.
+•	Reach Readers campaign request submission and admin review.
+•	Basic role-aware ROX assistant with selected reader and publisher use cases.
+•	Basic admin functions for publisher, book, campaign, and community moderation.
+5.2 Future Scope
+•	Production payment gateway integration and real publisher payouts.
+•	AI-assisted translation and publisher-approved multilingual editions.
+•	Advanced personalized recommendations.
+•	AI-generated or dynamically adaptive soundtracks.
+•	Advanced publisher analytics and reader segmentation.
+•	Automated notifications across email, push, and in-app channels.
+•	Audiobooks, social reading clubs, and author-reader events.
+•	Advanced digital rights management (DRM) and content protection.
+5.3 Out of Scope for Initial Prototype
+•	Real-money payment processing.
+•	Guaranteed production-grade DRM.
+•	Unreviewed AI translation of complete commercial books.
+•	Autonomous AI actions that spend money or publish content without confirmation.
+•	Native iOS and Android applications.
+6. Functional Requirements — Reader Portal
+6.1 Authentication and Onboarding
+•	Readers can register using email and password.
+•	Readers can log in, log out, and recover a forgotten password.
+•	Readers can manage profile information.
+•	Onboarding allows selection of preferred reading language, genres, and interests.
+•	Readers can update language and notification preferences.
+6.2 Book Discovery and Marketplace
+•	Browse available books by category, genre, popularity, and release date.
+•	Search by title, author, publisher, genre, language, and keyword.
+•	Filter by language, genre, price, and release date.
+•	View book cover, description, author, publisher, language, release date, price, and available editions.
+•	View ratings and reviews where enabled.
+•	Add and remove books from favorites or wishlist.
+•	View upcoming releases and follow books or authors.
+•	Display original and translated editions as distinct editions with clear language labels.
+Language requirement clarification: the product must distinguish between a publisher-uploaded/approved translated edition and an AI-generated translation. The initial commercial release should prioritize authorized, publisher-approved editions.
+6.3 Book Purchasing and Pricing
+Readers can purchase individual digital books. The platform displays a launch price during the first seven days after a book's release and the regular price thereafter.
+Pricing period	Proposed demo price	Status
+First seven days after release	USD 2.00	Assumption for prototype; client confirmation required
+After the first seven days	USD 4.00	Assumption for prototype; client confirmation required
+
+•	Calculate the applicable price using the book's release timestamp and configured promotional period.
+•	Display the price, applicable promotion, and order summary before checkout.
+•	Record purchase status and make successfully purchased books available in My Library.
+•	Show purchase confirmation and transaction history.
+•	Support transaction states such as pending, successful, failed, refunded, and cancelled in the production design.
+•	Real purchases must require explicit reader confirmation and secure payment processing.
+6.4 Reader Dashboard
+Dashboard section	Requirement
+My Library	List all purchased and accessible books.
+Reading Progress	Show current book, chapter, last-read position, and completion percentage.
+Favorites	Show books saved as favorites.
+Wishlist	Show books saved for future purchase.
+Subscriptions	Show active, expired, and available subscription plans.
+Payments	Show transaction history, status, amount, date, and receipt where applicable.
+Upcoming Releases	Show followed books and upcoming launch dates.
+Notifications	Show purchase, release, subscription, and community updates.
+Reading History	Show recently opened and previously read books.
+
+6.5 Reading Experience
+•	Open and read purchased books in a chapter-based reader.
+•	Support adjustable font size, light/dark themes, and readable typography.
+•	Support chapter navigation, bookmarks, and text highlighting where technically supported.
+•	Save reading position and progress automatically.
+•	Allow searching within the book by keyword or phrase.
+•	Allow the reader to switch between available authorized language editions.
+•	Ensure the reading experience is responsive on desktop, tablet, and mobile.
+6.6 StorySound — Immersive Background Music
+StorySound is an optional instrumental audio experience that allows readers to play background music associated with a book or chapter.
+•	Display an on/off control within the reading interface.
+•	Support play, pause, volume adjustment, and track selection where available.
+•	Associate predefined instrumental tracks or moods with individual chapters.
+•	Use non-lyrical music only in the initial feature scope.
+•	Change tracks at chapter transitions when a new chapter mood is configured.
+•	Pause or stop playback when the reader exits the book or disables StorySound.
+•	Respect the reader's audio preferences and avoid unexpected playback.
+Story atmosphere	Example audio mood
+Romantic	Soft piano or gentle strings
+Mystery	Suspenseful ambient instrumental
+Action	Cinematic instrumental
+Sad or reflective	Emotional piano
+Peaceful	Nature-inspired ambient
+
+MVP recommendation: use a curated set of licensed or original audio tracks mapped to chapter moods. AI-generated adaptive soundtracks are a future enhancement.
+6.7 Chapter Circle — Chapter Discussions
+After a reader completes a chapter, the platform may display a discussion prompt: “Share your feelings till now before the break....”
+•	Display a popup after chapter completion.
+•	Allow readers to submit chapter-specific comments.
+•	Allow readers to view comments from other eligible readers.
+•	Support replies and reactions in a later MVP iteration if needed.
+•	Allow readers to skip the discussion and continue reading.
+•	Restrict discussion visibility to avoid spoilers from chapters the reader has not unlocked.
+•	Allow users to report inappropriate comments.
+•	Provide administrator moderation and content removal capabilities.
+6.8 Reader Notifications
+•	Upcoming release reminders for followed books or authors.
+•	New release notifications.
+•	Purchase confirmations and payment status updates.
+•	Subscription renewal or expiry reminders.
+•	Replies and reactions to chapter discussions.
+•	Allow readers to configure notification preferences and frequency.
+6.9 ROX AI — Reader Assistant
+ROX is the in-app AI assistant. In the reader portal, ROX helps users discover, understand, search, and manage their reading activities.
+Use case	Example prompt or action
+In-book search	Find the chapter or passage containing a specific keyword.
+Chapter lookup	Find the chapter where a named event or character interaction occurs.
+Reading support	Explain a passage or summarize chapters the reader has completed.
+Recommendations	Recommend books based on genres or reading history.
+Purchase reminder	Remind me to purchase this book on Friday.
+Reading insights	Show my reading progress this month.
+
+•	ROX must respect the reader's account permissions and purchased content access.
+•	ROX must respect reading progress and spoiler boundaries by default.
+•	ROX must ground book-related answers in available book content and identify uncertainty.
+•	Scheduled purchases must be reminders or pending actions; no payment may be charged without explicit confirmation.
+•	The prototype may use mock responses; production requires secure AI integration and usage controls.
+7. Functional Requirements — Publisher Portal
+7.1 Publisher Registration and Verification
+•	Support registration as an individual author or publishing organization.
+•	Collect publisher name, contact details, organization type, and relevant profile information.
+•	Allow submission of verification documents where required.
+•	Allow publishers to provide payout details through a secure process.
+•	Support pending, approved, rejected, and suspended verification states.
+•	Require approval before a publisher can make books publicly available.
+7.2 Publisher Dashboard
+•	Display total books published and books awaiting approval.
+•	Display total units sold, gross revenue, estimated publisher earnings, and pending payouts.
+•	Display total and active readers where measurable.
+•	Highlight best-performing books and recent transactions.
+•	Display upcoming scheduled releases.
+•	Provide links to book performance and payment details.
+7.3 Book Management
+•	Add a book with title, subtitle, description, author, genre, language, and metadata.
+•	Upload book cover and manuscript files in supported formats such as EPUB and PDF.
+•	Add chapter structure and chapter metadata.
+•	Set release date, launch price, and regular price.
+•	Configure StorySound track or mood by chapter where available.
+•	Save a book as draft and submit it for review.
+•	Edit book details subject to publication and approval rules.
+•	Archive or request removal of a book.
+•	View book approval status and administrator feedback.
+Content retention rule: removing or delisting a book must not automatically revoke access for readers who already purchased it. The platform must define contractual, copyright, and legal exceptions before production.
+7.4 Book Performance Analytics
+Metric	Definition
+Total sales	Number of completed purchases for the book.
+Gross revenue	Total value of completed sales before deductions.
+Publisher earnings	Amount payable to the publisher after commissions and adjustments.
+Active readers	Readers who have recently engaged with the book, based on a defined activity window.
+Completion rate	Percentage of readers who reach the defined completion point.
+Chapter engagement	Reading activity or completion by chapter.
+Ratings	Average rating and number of ratings, where enabled.
+Favorites	Number of readers who saved the book.
+
+7.5 Publisher Payments and Earnings
+•	Show total earnings and earnings by book.
+•	Show individual transactions with date, book, gross amount, commission, adjustments, and net amount.
+•	Show pending, processing, completed, failed, and reversed payout statuses where applicable.
+•	Allow publishers to view and download payment statements.
+•	Show platform commission and refund adjustments transparently.
+•	Provide payout history and payout details.
+Illustrative revenue-share example: for a USD 4.00 sale and a 20% platform commission, the platform commission is USD 0.80 and the publisher share is USD 3.20 before any other applicable adjustments. The commission rate and settlement terms require client approval.
+7.6 Reach Readers — Promotional Campaign Requests
+Reach Readers allows a publisher to request promotional support from NOVELIA.
+•	Provide a Reach Readers action for each eligible book.
+•	Open a campaign request form with selected book, campaign type, target audience, target language/region, objectives, proposed dates, and optional notes.
+•	Allow publishers to submit and track campaign requests.
+•	Notify administrators when a request is submitted.
+•	Allow administrators to approve, reject, request changes, schedule, and close campaigns.
+•	Display campaign status to the publisher.
+Campaign status	Meaning
+Draft	Publisher has not submitted the request.
+Submitted	Request has been sent to the platform.
+Under Review	Administrator is evaluating the request.
+Approved	Campaign is approved and can be scheduled.
+Rejected	Request is declined with a reason where appropriate.
+Active	Campaign is currently running.
+Completed	Campaign has ended.
+
+7.7 ROX AI — Publisher Assistant
+Use case	Example prompt or action
+Release scheduling	Schedule my new book for a specified date.
+Sales analysis	Which of my books generated the highest revenue this month?
+Engagement analysis	Analyze reader engagement and completion for my latest book.
+Content support	Generate a draft book description from the supplied metadata.
+Promotion planning	Suggest a campaign for my mystery novel.
+Market insight	Which genres or languages show stronger engagement in my available aggregate data?
+
+•	ROX must only access data the publisher is authorized to view.
+•	Publisher analytics must distinguish measured results from AI-generated estimates or recommendations.
+•	ROX must not expose personally identifiable reader data unless a lawful, explicit product policy permits it.
+•	Actions such as scheduling a release or submitting a campaign require confirmation before execution.
+•	AI-generated descriptions and campaign content must be reviewable and editable before publication.
+8. Functional Requirements — Admin Portal
+Module	Requirements
+User management	View, activate, suspend, and manage reader accounts according to policy.
+Publisher management	Review verification details; approve, reject, or suspend publisher accounts.
+Book moderation	Review submitted books; approve, reject, request changes, or delist content.
+Payment oversight	Monitor transaction records, commissions, refunds, and publisher payout status.
+Commission management	Configure platform commission and applicable business rules with audit history.
+Promotion management	Review Reach Readers requests and approve, reject, or schedule campaigns.
+Community moderation	Review reported comments, remove content, and apply moderation actions.
+Notifications	Create and distribute platform announcements and operational notifications.
+Analytics	Monitor marketplace activity, sales, readers, publishers, and engagement.
+ROX governance	Configure approved AI capabilities, permissions, and usage policies.
+
+9. Business Rules
+ID	Business rule
+BR-01	Readers must register or log in before purchasing a book.
+BR-02	The launch price applies during the first seven days after the configured release time.
+BR-03	The regular price applies after the launch promotional period ends.
+BR-04	The regular price must be configurable; USD 4.00 is only a proposed prototype assumption.
+BR-05	Purchased books must appear in the reader's library after successful payment confirmation.
+BR-06	Reading progress must be saved automatically.
+BR-07	Chapter discussions must be associated with a specific book and chapter.
+BR-08	Discussion access must follow spoiler and chapter-access rules.
+BR-09	Publishers may manage only books and data belonging to their own publisher account.
+BR-10	Books must pass the required approval process before public availability.
+BR-11	Publisher earnings must account for commissions, refunds, and adjustments.
+BR-12	Reach Readers campaigns require administrator approval.
+BR-13	ROX must follow role-based access and data privacy rules.
+BR-14	ROX must not execute a purchase or charge a payment method without explicit confirmation.
+BR-15	Translated editions must have appropriate distribution and translation rights.
+BR-16	Delisting a book must not automatically remove access for existing purchasers, subject to legal and licensing obligations.
+
+10. Key User Journeys
+10.1 Reader — Purchase and Read a Book
+1.	Reader opens NOVELIA and logs in.
+2.	Reader selects a preferred reading language.
+3.	Reader browses or searches for a book.
+4.	Reader opens the book details page and reviews the available edition and price.
+5.	Reader proceeds to checkout and confirms the purchase.
+6.	The platform records the transaction and adds the book to My Library after successful payment.
+7.	Reader opens the book and starts reading.
+8.	Reader enables or disables StorySound.
+9.	Reading progress is saved automatically.
+10.	After completing a chapter, the Chapter Circle prompt appears.
+11.	Reader shares thoughts or skips the discussion.
+12.	Reader uses ROX to search for a passage or request assistance.
+10.2 Publisher — Upload and Promote a Book
+13.	Publisher registers and submits required verification information.
+14.	Administrator reviews and approves the publisher.
+15.	Publisher opens the publisher dashboard.
+16.	Publisher adds book metadata, cover, manuscript, language, pricing, and release date.
+17.	Publisher saves the book as a draft and submits it for approval.
+18.	Administrator reviews and approves the book.
+19.	The book becomes available according to its release schedule.
+20.	Publisher monitors sales, earnings, and engagement.
+21.	Publisher submits a Reach Readers campaign request.
+22.	Administrator reviews the request and updates its status.
+23.	Publisher uses ROX to analyze performance or prepare promotional content.
+11. Non-Functional Requirements
+Category	Requirement
+Performance	Pages and reading content should load efficiently; interactions should feel responsive under expected MVP load.
+Security	Use secure authentication, authorization, and protected handling of user and publisher information.
+Privacy	Collect only necessary data and provide transparent privacy and consent controls.
+Scalability	Architecture should support growth in readers, publishers, books, and markets.
+Availability	Readers should have reliable access to their purchased content, subject to service availability and rights.
+Accessibility	Use readable typography, sufficient contrast, keyboard navigation, and accessible controls.
+Compatibility	Support modern desktop and mobile browsers and responsive layouts.
+Localization	Support multiple languages and a path toward regional currencies and formats.
+Backup and recovery	Protect account, library, purchase, and publisher data with appropriate backup and recovery processes.
+AI safety	Prevent unauthorized data access, clearly communicate uncertainty, and require confirmation for consequential actions.
+Content protection	Apply appropriate copyright controls, access restrictions, and content protection measures.
+Auditability	Record key administrative, payment, approval, and publishing actions.
+
+12. Success Metrics and KPIs
+KPI	Definition / purpose
+Monthly Active Readers (MAR)	Unique readers active during a calendar month.
+New Publisher Registrations	Number of new publisher accounts created.
+Book Purchase Conversion	Percentage of eligible book detail visitors who complete a purchase.
+Average Revenue per Reader	Revenue divided by active or paying readers, using a clearly defined period.
+Book Completion Rate	Percentage of readers who reach the defined end of a book.
+Chapter Discussion Participation	Percentage of eligible chapter completions followed by a discussion contribution.
+StorySound Adoption	Percentage of active readers who use StorySound.
+ROX Engagement Rate	Percentage of active users who interact with ROX.
+Publisher Retention	Percentage of publishers who remain active over a defined period.
+Repeat Purchase Rate	Percentage of purchasers who make another purchase within a defined period.
+
+Proposed hypotheses for validation, not committed targets: 30% of active readers use StorySound; 20% participate in chapter discussions; 15% interact with ROX monthly; and 25% of first-time purchasers make another purchase within 30 days. Baselines and targets should be revised after user research and pilot data.
+13. Risks, Dependencies, and Mitigations
+Risk / dependency	Potential impact	Mitigation
+Copyright and publishing rights	Unauthorized distribution or legal disputes.	Verify publisher rights and obtain appropriate agreements before publication.
+Translation accuracy	Meaning, tone, or cultural context may be lost.	Prioritize publisher-approved translations and human review.
+Payment fees and cross-border payouts	Low-priced books may have high relative transaction costs; payout complexity.	Validate payment providers, settlement rules, currencies, taxes, and pricing.
+Publisher acquisition	Insufficient catalog reduces reader value.	Recruit publishers and secure quality content before broad reader acquisition.
+Music licensing	Unlicensed tracks create legal exposure.	Use original, licensed, or appropriately royalty-free tracks with documented rights.
+AI hallucination	ROX may invent book details or misstate analytics.	Ground responses in authorized source data and disclose uncertainty.
+Community moderation	Spoilers, harassment, spam, and harmful content.	Provide reporting, moderation workflows, and community guidelines.
+Content piracy	Unauthorized redistribution of digital books.	Assess DRM and access-control options appropriate to the business model.
+Privacy and regulation	Non-compliance across jurisdictions.	Obtain legal review for privacy, consumer protection, tax, and digital-content obligations.
+
+14. Open Questions and Decisions Required
+Area	Question requiring stakeholder decision
+Pricing	What is the regular price after the first seven days? Is the USD 2 launch price fixed across all markets?
+Subscription	What does a subscription include: unlimited reading, monthly credits, exclusive content, discounts, or other benefits?
+Revenue share	What percentage of each sale goes to the publisher and what fees or deductions apply?
+Translation	Will NOVELIA support publisher-uploaded translations, AI translation, or both? Who approves translations?
+Currencies and regions	Which launch countries, currencies, taxes, and payment methods are supported?
+StorySound	Will tracks be selected by publishers, assigned from a curated library, or generated dynamically by AI?
+Community	Are discussions public, limited to purchasers, or limited to readers who have completed the chapter?
+Publisher verification	What documents and approval criteria are required for individuals and publishing companies?
+Release scheduling	Can publishers schedule releases independently, or does every release require admin approval?
+Reader analytics	What reader data may publishers access, and must analytics be aggregated or anonymized?
+ROX autonomy	Which actions can ROX perform directly, and which require user confirmation?
+Content removal	What happens to existing purchaser access when a publisher removes or loses rights to a book?
+
+15. Prototype Acceptance Criteria
+The initial interactive prototype is considered ready for stakeholder demonstration when the following conditions are met:
+•	A user can enter the application using a reader, publisher, or admin demo role.
+•	Reader and publisher navigation are visibly separated.
+•	A reader can browse sample books, view details, and complete a simulated purchase.
+•	A simulated purchased book appears in the reader's library.
+•	A reader can open a sample book, navigate chapters, and retain reading progress during the demo.
+•	StorySound can be switched on and off and plays an available demo track.
+•	The Chapter Circle prompt appears after a sample chapter is completed, and the reader can post or skip.
+•	ROX provides role-appropriate sample interactions and does not claim to execute unsupported actions.
+•	A publisher can create or edit a sample book and view sample sales and earnings.
+•	A publisher can submit a Reach Readers campaign request and see its status.
+•	An administrator can review sample publisher, book, and campaign submissions.
+•	The prototype clearly labels simulated purchases, sample analytics, and demo-only data.
+•	Primary screens are responsive and important controls have functional interactions.
+16. Assumptions and Constraints
+•	The initial product is a responsive web application.
+•	USD 2.00 for the first seven days and USD 4.00 thereafter are illustrative prototype assumptions only.
+•	The revenue-share example of 80% publisher / 20% platform is illustrative only.
+•	The first prototype may use mock data and local storage instead of a production backend.
+•	No real payments or payouts are processed in the prototype.
+•	StorySound uses a small set of approved demo tracks.
+•	ROX may begin with mock responses before integration with a live AI model.
+•	Production launch requires legal, security, privacy, payment, content-rights, and operational review.
+17. Recommended Product Roadmap
+Release	Focus	Included capabilities
+Release 1 — MVP	Validate core marketplace and reading experience.	Reader and publisher access; discovery; book details; simulated purchases; library; reading progress; StorySound; Chapter Circle; basic ROX; publisher book management; basic analytics; admin approval.
+Release 2 — Enhanced	Enable real operations and stronger engagement.	Payment integration; publisher payouts; approved multilingual editions; release scheduling; Reach Readers workflows; notifications; advanced analytics; expanded ROX actions.
+Release 3 — Scale	Expand personalization and global reach.	AI-assisted translation; personalized recommendations; adaptive soundtracks; audiobooks; advanced reader insights; broader global distribution.
+
+18. Glossary
+Term	Definition
+ROX	Role-aware AI assistant available to readers and publishers.
+StorySound	Optional instrumental background audio associated with a book or chapter.
+Chapter Circle	Chapter-specific reader discussion experience.
+Reach Readers	Publisher-initiated request for promotional support from NOVELIA.
+MVP	Minimum Viable Product: the smallest product scope that can validate core value.
+DRM	Digital Rights Management: technology and controls used to manage access to digital content.
+Gross revenue	Total sales value before commissions, refunds, and other adjustments.
+Publisher earnings	Amount due to a publisher after applicable commissions and adjustments.
+
+19. Approval and Sign-off
+The following stakeholders should review and approve the PRD before production development begins.
+Stakeholder	Name	Approval / date
+Client / Business Owner		
+Product Manager		
+Business Analyst		
+Engineering Lead		
+UX/UI Lead		
+Operations / Finance		
+

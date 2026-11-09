@@ -1,0 +1,6 @@
+{
+  "name": "NOVELIA — AI-Powered Global Reading Marketplace",
+  "description": "Multilingual digital reading marketplace connecting readers and publishers with StorySound instrumental audio, Chapter Circle discussions, and ROX AI assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-display: 'Cinzel', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --greece-blue: #0D5EAF;
+    --greece-blue-dark: #094787;
+    --aegean-light: #e8f3fc;
+    --sunlight-warmth: #fefcf8;
+    --sunlight-glow: rgba(245, 158, 11, 0.08);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #fcf9f2;
+    color: #1c1917;
+  }
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(13, 94, 175, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(13, 94, 175, 0.45);
+}
+
+/* Warm sunlight subtle backdrop */
+.sunlight-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(254, 243, 199, 0.5) 0%, rgba(252, 249, 242, 0) 70%);
+}
+
+/* Reader themes */
+.reader-theme-dark {
+  background-color: #06182c;
+  color: #e0f2fe;
+}
+
+.reader-theme-sepia {
+  background-color: #f7f2e7;
+  color: #2d261e;
+}
+
+.reader-theme-paper {
+  background-color: #ffffff;
+  color: #1c1917;
+}
